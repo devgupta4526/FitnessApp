@@ -29,11 +29,19 @@ public class RecommendationController {
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<RecomendationResponse>> getRecommendations(
+    public ResponseEntity<List<RecomendationResponse>> getUserRecommendations(
         @PathVariable String userId
     ){
            List<RecomendationResponse> list =  recomendationService.getUserRecommendation(userId);
            return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/activity/{activityId}")
+    public ResponseEntity<List<RecomendationResponse>> getActivityRecommendations(
+            @PathVariable String activityId
+    ){
+        List<RecomendationResponse> list =  recomendationService.getActivityRecommendation(activityId);
+        return ResponseEntity.ok(list);
     }
 
 }

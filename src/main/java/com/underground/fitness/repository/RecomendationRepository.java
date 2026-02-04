@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface RecomendationRepository extends JpaRepository<Recommendation,String> {
     List<Recommendation> findByUser_Id(String userId);
+
+    List<Recommendation> findByActivity_Id(String activityId);
 }

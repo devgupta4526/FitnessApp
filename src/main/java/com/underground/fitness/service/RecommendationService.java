@@ -68,4 +68,20 @@ public class RecommendationService {
         return recomendationResponseList;
     }
 
+    public List<RecomendationResponse> getActivityRecommendation(String activityId) {
+        List<Recommendation> recomendationList = recomendationRepository.findByActivity_Id(activityId);
+        List<RecomendationResponse> recomendationResponseList = new ArrayList<>();
+
+        for (Recommendation recommendation : recomendationList) {
+            RecomendationResponse response = new RecomendationResponse(
+                    recommendation.getType(),
+                    recommendation.getRecomendation(),
+                    recommendation.getImprovements(),
+                    recommendation.getSuggestions(),
+                    recommendation.getSaftey()
+            );
+            recomendationResponseList.add(response);
+        }
+        return recomendationResponseList;
+    }
 }
