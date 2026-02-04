@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import tools.jackson.databind.annotation.JsonAppend;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -39,5 +38,5 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true)
     @JsonIgnore
-    private List<Recomendation> recomendations;
+    private List<Recommendation> recomendations;
 }

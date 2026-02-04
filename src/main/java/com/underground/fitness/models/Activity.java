@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import java.sql.SQLType;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +48,6 @@ public class Activity {
 
     @OneToMany(mappedBy = "activity", cascade = CascadeType.ALL,orphanRemoval = true)
     @JsonIgnore
-    private List<Recomendation> recomendations = new ArrayList<>();
+    private List<Recommendation> recomendations = new ArrayList<>();
 
 }
